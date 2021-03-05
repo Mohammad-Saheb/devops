@@ -1,0 +1,15 @@
+---
+
+- name: Playbook to play and run a docker
+  hosts: all
+  become: true
+  gather_facts: false
+
+  tasks:
+    -name: Build a Docker image
+    docker_image:
+      name: devops
+      build:
+        path : /var/lib/jenkins/workspace/devops
+        pull: false
+      source: build
